@@ -1,6 +1,6 @@
 # -*- coding:utf8 -*-
 
-from utools import wav_infos, read_wav, wav_to_pcm, pcm_to_wav, get_wav_time, get_ms_part_wav, get_second_part_wav, get_minute_part_wav
+from wavTools import wav_infos, read_wav, wav_to_pcm, pcm_to_wav, get_wav_time, get_ms_part_wav, get_second_part_wav, get_minute_part_wav
 
 wav_path = "./voice_files/demo.wav"
 pcm_path = "./voice_files/demo.pcm"
