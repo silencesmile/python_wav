@@ -1,6 +1,6 @@
 # -*- coding:utf8 -*-
 
-from wavTools import wav_infos, read_wav, wav_to_pcm, pcm_to_wav, get_wav_time, get_ms_part_wav, get_second_part_wav, get_minute_part_wav
+from wavTools import *
 
 wav_path = "./voice_files/demo.wav"
 pcm_path = "./voice_files/demo.pcm"
@@ -47,5 +47,9 @@ wav_to_pcm(wav_path, pcm_path)
 
 # pcm文件转为wav文件
 pcm_to_wav(pcm_path, wav_path2)
+
+# 音频对应的波形图
+wav_waveform(wav_path)
+
 
 

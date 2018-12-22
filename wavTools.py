@@ -6,8 +6,11 @@ auth： Young
 import wave
 import contextlib
 import numpy as np
+import matplotlib.pyplot as plt
 
+from scipy.io import wavfile
 from pydub import AudioSegment
+
 
 def wav_infos(wav_path):
     '''
@@ -21,9 +24,6 @@ def wav_infos(wav_path):
         f = wave.open(wav_path)
 
         return list(f.getparams())
-
-
-
 
 def read_wav(wav_path):
     '''
@@ -145,6 +145,29 @@ def pcm_to_wav(pcm_path, wav_path):
     wave_out.setsampwidth(2)
     wave_out.setframerate(8000)
     wave_out.writeframes(str_data)
+
+# 音频对应的波形图
+def wav_waveform(wave_path):
+    '''
+    音频对应的波形图
+    :param wave_path:  音频路径
+    :return:
+    '''
+    WAVE = wave.open(wave_path)
+    # print('---------声音信息------------')
+    # for item in enumerate(WAVE.getparams()):
+    #     print(item)
+    a = WAVE.getparams().nframes  # 帧总数
+    f = WAVE.getparams().framerate  # 采样频率
+    sample_time = 1 / f  # 采样点的时间间隔
+    time = a / f  # 声音信号的长度
+    sample_frequency, audio_sequence = wavfile.read(wave_path)
+    # print(audio_sequence)  # 声音信号每一帧的“大小”
+    x_seq = np.arange(0, time, sample_time)
+
+    plt.plot(x_seq, audio_sequence, 'blue')
+    plt.xlabel("time (s)")
+    plt.show()
 
 
 
