@@ -1,6 +1,9 @@
 # python_wav
 对音频文件的处理：音频信息，读取内容，获取时长，切割音频，pcm与wav互转
 
+文章简介：公众号-Python疯子
+https://mp.weixin.qq.com/s/Kw_n3RgYfZCn_0ZOJpaxHg
+
 ###### 获取音频信息
 ret = wav_infos(wav_path)
 print(ret)

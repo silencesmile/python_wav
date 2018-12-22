@@ -153,12 +153,12 @@ def wav_waveform(wave_path):
     :param wave_path:  音频路径
     :return:
     '''
-    WAVE = wave.open(wave_path)
+    file = wave.open(wave_path)
     # print('---------声音信息------------')
     # for item in enumerate(WAVE.getparams()):
     #     print(item)
-    a = WAVE.getparams().nframes  # 帧总数
-    f = WAVE.getparams().framerate  # 采样频率
+    a = file.getparams().nframes  # 帧总数
+    f = file.getparams().framerate  # 采样频率
     sample_time = 1 / f  # 采样点的时间间隔
     time = a / f  # 声音信号的长度
     sample_frequency, audio_sequence = wavfile.read(wave_path)
